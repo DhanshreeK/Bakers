@@ -1,9 +1,24 @@
 Rails.application.routes.draw do
+  resources :deliveries
+  resources :inward_modules do
+       collection do
+      get :load_item_data
+    end
+  end
+
   resources :employees
-  resources :products
-  resources :vendors
+  resources :products do
+     collection do
+      get :load_item_data
+    end
+  end
+  resources :vendors do
+    collection do
+      get :load_vendor_data
+    end
+  end
   resources :companies
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users
   as :user do
   get '/users/sign_out' => 'devise/sessions#destroy'
 end

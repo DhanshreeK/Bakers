@@ -12,7 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui
-//= require rails-ujs
 //= require bootstrap-select
-//= require dataTables/jquery.dataTables
+//= require rails-ujs

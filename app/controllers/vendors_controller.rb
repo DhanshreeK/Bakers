@@ -7,6 +7,11 @@ class VendorsController < ApplicationController
     @vendors = Vendor.all
   end
 
+  def load_vendor_data
+    @vendor = Vendor.find_by_id(params[:vendor_id]).present? ? Vendor.find(params[:vendor_id]) : Vendor.unscoped.find_by_id(params[:vendor_id])
+    render :json => [@vendor.phone_no, @vendor.gst_no, @vendor.comission]
+  end
+
   # GET /vendors/1
   # GET /vendors/1.json
   def show
