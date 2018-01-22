@@ -4,7 +4,7 @@
                  <br>
                     <div class="panel panel-info">
                         <div class="panel-heading clearfix"> 
-                            <div class="panel-title">Product Details</div> 
+                            <div class="panel-title">Inward</div> 
                             <ul class="panel-tool-options"> 
                                <!--  <li class="dropdown">
                                     <a data-toggle="dropdown" class="dropdown-toggle" href="#" aria-expanded="false"><i class="icon-cog"></i></a>
@@ -24,39 +24,53 @@
                         <br>
                        
 <div class="panel-body">
-<%= form_with(model: product, local: true) do |form| %>
-  <% if product.errors.any? %>
+<%= form_with(model: inward_module, local: true) do |form| %>
+  <% if inward_module.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+      <h2><%= pluralize(inward_module.errors.count, "error") %> prohibited this inward_module from being saved:</h2>
 
       <ul>
-      <% product.errors.full_messages.each do |message| %>
+      <% inward_module.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="form-group">
+   <div class="form-group">
         <div class="col-md-4">
-          <label class="col-sm-6 control-label">Product Name</label>
-    <%= form.text_field :name, id: :product_name, class: 'form-control'%>
-  </div>
+          <label class="col-sm-6 control-label">Date</label>
+          <%= form.date_field :date, id: :inward_module_date, class: 'form-control' %>
+        </div>
   </div>
 
-  <div class="form-group">
+   <div class="form-group">
         <div class="col-md-4">
-          <label class="col-sm-6 control-label">Price</label>
-    <%= form.text_field :price, id: :product_price, class: 'form-control' %>
-  </div>
+          <label class="col-sm-6 control-label">Inward Number</label>
+        <%= form.text_field :inward_number, id: :inward_module_inward_number, class: 'form-control' %>
+      </div>
+   </div>
+
+   <div class="form-group">
+        <div class="col-md-4">
+          <label class="col-sm-6 control-label">Select Product</label>
+  
+        <%= form.select :product_id, Product.all.collect{|p| [p.name, p.id]}, {prompt:true},class: "form-control selectpicker", "data-live-search" => "true" %>
+      </div>
   </div>
 
-<div class="form-group"> 
-     <div class="col-sm-offset-1 col-sm-10">  
-       <%= form.submit "Submit", class: 'btn btn-success' %>
-       <%= link_to 'Back', products_path, class: 'btn btn-red' %>
-    </div>
-</div>
+   <div class="form-group">
+        <div class="col-md-4">
+          <label class="col-sm-6 control-label">Quantity</label>
+        <%= form.text_field :quantity, id: :inward_module_quantity , class: 'form-control'%>
+      </div>
+  </div>
+
+   <div class="form-group"> 
+       <div class="col-sm-offset-1 col-sm-10">  
+         <%= form.submit "Submit", class: 'btn btn-success' %>
+         <%= link_to 'Back', inward_modules_path, class: 'btn btn-red' %>
+      </div>
+  </div>
  
 <% end %>
 </div>

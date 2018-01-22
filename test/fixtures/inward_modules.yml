@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2018-01-22
+  inward_number: MyString
+  product: one
+  quantity: MyString
+
+two:
+  date: 2018-01-22
+  inward_number: MyString
+  product: two
+  quantity: MyString
