@@ -7,6 +7,12 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  #load product on ajax call to fetch rate
+  def load_item_data
+    @product = Product.find_by_id(params[:product_id]).present? ? Product.find(params[:product_id]) : Product.unscoped.find_by_id(params[:product_id])
+    render :json => [@product.price, @product.quantity]
+  end
+
   # GET /products/1
   # GET /products/1.json
   def show
@@ -69,6 +75,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price)
+      params.require(:product).permit(:name, :price, :quantity)
     end
 end

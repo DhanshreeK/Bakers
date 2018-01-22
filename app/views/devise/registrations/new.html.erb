@@ -35,11 +35,7 @@
 <body class="login-page">
 <div class="login-container">
   <div class="login-branding">
-   <% unless GeneralSetting.first.blank? %>
-                <%= image_tag GeneralSetting.first.logo.url %>
-   <% else %>
-                <%= image_tag "logo.png" %>
-  <% end %>
+  
   </div>
   <div class="login-content">
     <h2>Create an account</h2>
