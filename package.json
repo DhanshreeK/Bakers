@@ -1,5 +1,11 @@
 {
-  "name": "Kwality_Bakers",
+  "name": "Dhanshree",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "1",
+  "description": "abc",
+  "main": "sss",
+  "repository": "Yes",
+  "author": "dhanshree",
+  "license": "yes"
 }
